@@ -22,7 +22,8 @@ struct ChatManager {
 
 
 struct ChatbotView: View {
-    @State var currentMessage: Message = .init(questions: ["Question"], options: ["Option"], answers: [])
+    @State var currentMessage: Message = .init(questions: ["Question", "Question 2"], options: ["Yes", "No"], answers: [])
+    
     let chatManager: ChatManager
     
     init(chatManager: ChatManager) {
@@ -32,11 +33,14 @@ struct ChatbotView: View {
     var body: some View {
         VStack {
             VStack {
-                HStack {
-                    Text(currentMessage.questions[0])
-                        .background(Color.yellow)
-                        .padding([.leading])
-                    Spacer()
+                ForEach(currentMessage.questions, id: \.self) { question in
+                    HStack {
+                        Text(question)
+                            .background(Color.yellow)
+                            .padding([.leading])
+                        Spacer()
+                    }
+                    .padding(4)
                 }
                 if let firstAnswer = currentMessage.answers.first {
                     HStack {
@@ -51,10 +55,14 @@ struct ChatbotView: View {
             }
             .padding()
             
-            Button {
-                currentMessage.answers = [currentMessage.options[0]]
-            } label: {
-                Text(currentMessage.options[0])
+            HStack {
+                ForEach(currentMessage.options, id: \.self) { option in
+                    Button {
+                        currentMessage.answers = [option]
+                    } label: {
+                        Text(option)
+                    }
+                }
             }
 
         }
