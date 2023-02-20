@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E19DD5429A3CF54002B7C94 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E19DD5329A3CF54002B7C94 /* SwiftUIView.swift */; };
 		6EA6911D29A3B9E60084EF6E /* MC3_ChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA6911C29A3B9E60084EF6E /* MC3_ChallengeApp.swift */; };
-		6EA6911F29A3B9E60084EF6E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA6911E29A3B9E60084EF6E /* ContentView.swift */; };
 		6EA6912129A3B9E70084EF6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EA6912029A3B9E70084EF6E /* Assets.xcassets */; };
 		6EA6912429A3B9E70084EF6E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EA6912329A3B9E70084EF6E /* Preview Assets.xcassets */; };
 		6EA6912629A3B9E70084EF6E /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA6912529A3B9E70084EF6E /* Persistence.swift */; };
@@ -36,9 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6E19DD5329A3CF54002B7C94 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		6EA6911929A3B9E60084EF6E /* MC3-Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC3-Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EA6911C29A3B9E60084EF6E /* MC3_ChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC3_ChallengeApp.swift; sourceTree = "<group>"; };
-		6EA6911E29A3B9E60084EF6E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6EA6912029A3B9E70084EF6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6EA6912329A3B9E70084EF6E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6EA6912529A3B9E70084EF6E /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -99,11 +99,11 @@
 			isa = PBXGroup;
 			children = (
 				6EA6911C29A3B9E60084EF6E /* MC3_ChallengeApp.swift */,
-				6EA6911E29A3B9E60084EF6E /* ContentView.swift */,
 				6EA6912029A3B9E70084EF6E /* Assets.xcassets */,
 				6EA6912529A3B9E70084EF6E /* Persistence.swift */,
 				6EA6912729A3B9E70084EF6E /* MC3_Challenge.xcdatamodeld */,
 				6EA6912229A3B9E70084EF6E /* Preview Content */,
+				6E19DD5329A3CF54002B7C94 /* SwiftUIView.swift */,
 			);
 			path = "MC3-Challenge";
 			sourceTree = "<group>";
@@ -264,8 +264,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EA6912629A3B9E70084EF6E /* Persistence.swift in Sources */,
-				6EA6911F29A3B9E60084EF6E /* ContentView.swift in Sources */,
 				6EA6911D29A3B9E60084EF6E /* MC3_ChallengeApp.swift in Sources */,
+				6E19DD5429A3CF54002B7C94 /* SwiftUIView.swift in Sources */,
 				6EA6912929A3B9E70084EF6E /* MC3_Challenge.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

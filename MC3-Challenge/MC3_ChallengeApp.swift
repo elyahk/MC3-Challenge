@@ -13,7 +13,7 @@ struct MC3_ChallengeApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SwiftUIView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
