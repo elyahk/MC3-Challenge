@@ -16,7 +16,7 @@ class ChatbotViewModel: ObservableObject {
         Task {
             do {
                 try await Task.sleep(for: .seconds(0.3))
-                messages.append(.init(content: "Question 2", owner: .chatbot))
+                messages.append(.init(content: "Question 2", owner: .bot))
             } catch {
                 
             }

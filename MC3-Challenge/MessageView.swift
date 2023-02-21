@@ -17,7 +17,7 @@ struct MessageView: View {
     var body: some View {
         HStack {
             switch message.owner {
-            case .chatbot:
+            case .bot:
                 Text(message.content)
                     .background(Color.yellow)
                     .padding([.trailing], 100)
@@ -36,6 +36,6 @@ struct MessageView: View {
 
 struct MessageView_Previews: PreviewProvider {
     static var previews: some View {
-        MessageView(message: .init(content: "Message 1", owner: .chatbot))
+        MessageView(message: .init(content: "Message 1", owner: .bot))
     }
 }
