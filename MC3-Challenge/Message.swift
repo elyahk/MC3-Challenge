@@ -15,6 +15,8 @@ enum Owner: Equatable {
 class Message: ObservableObject, Identifiable, Equatable {
     var content: String
     var owner: Owner
+    var id: String = ""
+    var options: [[String: String]] = []
     var date: Date = .init()
     
     init(content: String, owner: Owner) {
