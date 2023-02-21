@@ -10,46 +10,6 @@
 
 import SwiftUI
 
-enum Owner {
-    case chatbot
-    case user
-}
-
-class Message: ObservableObject, Identifiable {
-    var content: String
-    var owner: Owner
-    var date: Date = .init()
-    
-    init(content: String, owner: Owner) {
-        self.content = content
-        self.owner = owner
-    }
-}
-
-class MessageManager: ObservableObject {
-    @Published var messages: [Message]
-    
-    init(messages: [Message]) {
-        self.messages = messages
-    }
-    
-    private func userResponded(_ index: Int) {
-        Task {
-            do {
-                try await Task.sleep(for: .seconds(1))
-                messages.append(.init(content: "Question 2", owner: .chatbot))
-            } catch {
-                
-            }
-        }
-    }
-    
-    func answerButtonTapped(_ index: Int) {
-        messages.append(Message(content: "Answer", owner: .user))
-        userResponded(index)
-    }
-}
-
 struct ChatbotView: View {
     @ObservedObject var messageManager: MessageManager
     
@@ -83,24 +43,5 @@ struct ChatbotView: View {
 struct ChatbotView_Previews: PreviewProvider {
     static var previews: some View {
         ChatbotView(messageManager: .mock)
-    }
-}
-
-extension MessageManager {
-    static let mock: MessageManager = MessageManager(messages: .mockMessages)
-}
-
-extension Array where Element == Message {
-    static var mockMessages: [Element] {
-        [
-            Element(
-                content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-                owner: .chatbot
-            ),
-            Element(
-                content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-                owner: .chatbot
-            )
-        ]
     }
 }
