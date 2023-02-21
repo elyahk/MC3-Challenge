@@ -15,7 +15,7 @@ class ChatbotViewModel: ObservableObject {
     private func userResponded(_ index: Int) {
         Task {
             do {
-                try await Task.sleep(for: .seconds(1))
+                try await Task.sleep(for: .seconds(0.3))
                 messages.append(.init(content: "Question 2", owner: .chatbot))
             } catch {
                 
@@ -37,9 +37,15 @@ struct ChatbotView: View {
     
     var body: some View {
         VStack {
-            ScrollView {
-                ForEach(viewModel.messages) { message in
-                    MessageView(message: message)
+            ScrollViewReader { scrollView in
+                ScrollView(.vertical) {
+                    ForEach(viewModel.messages) { message in
+                        MessageView(message: message)
+                            .id(message.id)
+                    }
+                }
+                .onChange(of: viewModel.messages) { messages in
+                    scrollView.scrollTo(messages.last?.id)
                 }
             }
             

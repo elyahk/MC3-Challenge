@@ -7,12 +7,12 @@
 
 import Foundation
 
-enum Owner {
+enum Owner: Equatable {
     case chatbot
     case user
 }
 
-class Message: ObservableObject, Identifiable {
+class Message: ObservableObject, Identifiable, Equatable {
     var content: String
     var owner: Owner
     var date: Date = .init()
@@ -20,6 +20,10 @@ class Message: ObservableObject, Identifiable {
     init(content: String, owner: Owner) {
         self.content = content
         self.owner = owner
+    }
+    
+    static func == (lhs: Message, rhs: Message) -> Bool {
+        lhs.id == rhs.id
     }
 }
 
