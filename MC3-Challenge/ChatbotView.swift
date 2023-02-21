@@ -34,11 +34,19 @@ class MessageManager: ObservableObject {
     }
     
     private func userResponded(_ index: Int) {
-        
+        Task {
+            do {
+                try await Task.sleep(for: .seconds(1))
+                messages.append(.init(content: "Question 2", owner: .chatbot))
+            } catch {
+                
+            }
+        }
     }
     
     func answerButtonTapped(_ index: Int) {
         messages.append(Message(content: "Answer", owner: .user))
+        userResponded(index)
     }
 }
 
@@ -118,18 +126,6 @@ extension Array where Element == Message {
             ),
             Element(
                 content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-                owner: .chatbot
-            ),
-            Element(
-                content: "ndard dummy text ever since the 1500s",
-                owner: .user
-            ),
-            Element(
-                content: "ndard dummy text ever since the 1500s",
-                owner: .chatbot
-            ),
-            Element(
-                content: "ndard dummy text ever since the 1500s",
                 owner: .chatbot
             )
         ]
