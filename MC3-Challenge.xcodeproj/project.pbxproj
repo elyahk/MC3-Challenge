@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		6E19DD5429A3CF54002B7C94 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E19DD5329A3CF54002B7C94 /* SwiftUIView.swift */; };
 		6E19DD5629A3CFD6002B7C94 /* ChatbotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E19DD5529A3CFD6002B7C94 /* ChatbotView.swift */; };
+		6E2315AB29A510CF00D80C17 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2315AA29A510CF00D80C17 /* MessageView.swift */; };
+		6E2315AD29A5114C00D80C17 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2315AC29A5114C00D80C17 /* Message.swift */; };
+		6E2315AF29A5115E00D80C17 /* MessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2315AE29A5115E00D80C17 /* MessageManager.swift */; };
 		6EA6911D29A3B9E60084EF6E /* MC3_ChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA6911C29A3B9E60084EF6E /* MC3_ChallengeApp.swift */; };
 		6EA6912129A3B9E70084EF6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EA6912029A3B9E70084EF6E /* Assets.xcassets */; };
 		6EA6912429A3B9E70084EF6E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EA6912329A3B9E70084EF6E /* Preview Assets.xcassets */; };
@@ -40,6 +43,9 @@
 		3737569729A5130400AF9FDB /* messages.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = messages.geojson; sourceTree = "<group>"; };
 		6E19DD5329A3CF54002B7C94 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		6E19DD5529A3CFD6002B7C94 /* ChatbotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatbotView.swift; sourceTree = "<group>"; };
+		6E2315AA29A510CF00D80C17 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		6E2315AC29A5114C00D80C17 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		6E2315AE29A5115E00D80C17 /* MessageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageManager.swift; sourceTree = "<group>"; };
 		6EA6911929A3B9E60084EF6E /* MC3-Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC3-Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EA6911C29A3B9E60084EF6E /* MC3_ChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC3_ChallengeApp.swift; sourceTree = "<group>"; };
 		6EA6912029A3B9E70084EF6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,6 +108,7 @@
 		6EA6911B29A3B9E60084EF6E /* MC3-Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				6E2315AA29A510CF00D80C17 /* MessageView.swift */,
 				6EA6911C29A3B9E60084EF6E /* MC3_ChallengeApp.swift */,
 				6EA6912029A3B9E70084EF6E /* Assets.xcassets */,
 				6EA6912529A3B9E70084EF6E /* Persistence.swift */,
@@ -109,6 +116,8 @@
 				6EA6912229A3B9E70084EF6E /* Preview Content */,
 				6E19DD5329A3CF54002B7C94 /* SwiftUIView.swift */,
 				6E19DD5529A3CFD6002B7C94 /* ChatbotView.swift */,
+				6E2315AE29A5115E00D80C17 /* MessageManager.swift */,
+				6E2315AC29A5114C00D80C17 /* Message.swift */,
 			);
 			path = "MC3-Challenge";
 			sourceTree = "<group>";
@@ -268,11 +277,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E2315AB29A510CF00D80C17 /* MessageView.swift in Sources */,
 				6E19DD5629A3CFD6002B7C94 /* ChatbotView.swift in Sources */,
 				6EA6912629A3B9E70084EF6E /* Persistence.swift in Sources */,
 				6EA6911D29A3B9E60084EF6E /* MC3_ChallengeApp.swift in Sources */,
 				6E19DD5429A3CF54002B7C94 /* SwiftUIView.swift in Sources */,
 				6EA6912929A3B9E70084EF6E /* MC3_Challenge.xcdatamodeld in Sources */,
+				6E2315AD29A5114C00D80C17 /* Message.swift in Sources */,
+				6E2315AF29A5115E00D80C17 /* MessageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
