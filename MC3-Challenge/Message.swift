@@ -27,14 +27,14 @@ extension Message {
     static func long(owner: Owner = .chatbot) -> Message {
         .init(
             content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, industry's standard dummy text ever since the 1500s",
-            owner: .chatbot
+            owner: owner
         )
     }
     
     static func short(owner: Owner = .chatbot) -> Message {
         .init(
             content: "Lorem Ipsum is simply",
-            owner: .chatbot
+            owner: owner
         )
     }
 }

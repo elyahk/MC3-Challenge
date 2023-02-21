@@ -1,33 +1,51 @@
-//
-//  ChatbotView.swift
-//  MC3-Challenge
-//
-//  Created by Eldorbek Nusratov on 20/02/23.
-//
-
-
-// MARK: -  Give proper name for ChatManager and SingleChat
-
 import SwiftUI
 
-struct ChatbotView: View {
-    @ObservedObject var messageManager: MessageManager
+class ChatbotViewModel: ObservableObject {
+    @Published var messages: [Message]
     
-    init(messageManager: MessageManager) {
-        self.messageManager = messageManager
+    init(messages: [Message]) {
+        self.messages = messages
+    }
+    
+    func answerButtonTapped(_ index: Int) {
+        messages.append(Message(content: "Answer", owner: .user))
+        userResponded(index)
+    }
+    
+    private func userResponded(_ index: Int) {
+        Task {
+            do {
+                try await Task.sleep(for: .seconds(1))
+                messages.append(.init(content: "Question 2", owner: .chatbot))
+            } catch {
+                
+            }
+        }
+    }
+}
+
+extension ChatbotViewModel {
+    static let mock: ChatbotViewModel = ChatbotViewModel(messages: [.long(), .short(), .short(owner: .user), .long()])
+}
+
+struct ChatbotView: View {
+    @ObservedObject var viewModel: ChatbotViewModel
+    
+    init(viewModel: ChatbotViewModel) {
+        self.viewModel = viewModel
     }
     
     var body: some View {
         VStack {
             ScrollView {
-                ForEach(messageManager.messages) { message in
+                ForEach(viewModel.messages) { message in
                     MessageView(message: message)
                 }
             }
             
             HStack {
                 Button {
-                    messageManager.answerButtonTapped(0)
+                    viewModel.answerButtonTapped(0)
                 } label: {
                     Text("Answer")
                         .frame(maxWidth: .infinity)
@@ -42,6 +60,6 @@ struct ChatbotView: View {
 
 struct ChatbotView_Previews: PreviewProvider {
     static var previews: some View {
-        ChatbotView(messageManager: .mock)
+        ChatbotView(viewModel: .mock)
     }
 }
