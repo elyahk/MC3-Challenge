@@ -32,6 +32,10 @@ class MessageManager: ObservableObject {
     init(messages: [Message]) {
         self.messages = messages
     }
+    
+    func answerButtonTapped(_ index: Int) {
+        messages.append(Message(content: "Answer", owner: .user))
+    }
 }
 
 struct ChatbotView: View {
@@ -51,9 +55,7 @@ struct ChatbotView: View {
             
             HStack {
                 Button {
-                    messageManager.messages.append(
-                        Message(content: "Answer", owner: .user)
-                    )
+                    messageManager.answerButtonTapped(0)
                 } label: {
                     Text("Answer")
                         .frame(maxWidth: .infinity)
@@ -79,13 +81,13 @@ struct MessageView: View {
             case .chatbot:
                 Text(message.content)
                     .background(Color.yellow)
-                    .padding([.leading])
+                    .padding([.trailing], 100)
                 Spacer()
             case .user:
                 Spacer()
                 Text(message.content)
                     .background(Color.yellow)
-                    .padding([.leading])
+                    .padding([.leading], 100)
             }
             
         }
@@ -93,46 +95,27 @@ struct MessageView: View {
     }
 }
 
-//
-//struct MessageView: View {
-//    @ObservedObject var message: Message
-//
-//    init(message: Message) {
-//        self.message = message
-//    }
-//
-//    var body: some View {
-//        ForEach(message.questions, id: \.self) { question in
-//            HStack {
-//                Text(question)
-//                    .background(Color.yellow)
-//                    .padding([.leading])
-//                Spacer()
-//            }
-//            .padding(4)
-//        }
-//        if let firstAnswer = message.answers.first {
-//            HStack {
-//                Spacer()
-//                Text(firstAnswer)
-//                    .background(Color.yellow)
-//                    .padding([.trailing])
-//            }
-//        }
-//        Spacer()
-//    }
-//}
-
-
-
 struct ChatbotView_Previews: PreviewProvider {
     static var previews: some View {
-        ChatbotView(messageManager: .init(messages: [
-            .init(content: "Message 1", owner: .chatbot),
-            .init(content: "Message 1", owner: .user),
-            .init(content: "Message 1", owner: .user),
-            .init(content: "Message 1", owner: .chatbot),
-            .init(content: "Message 1", owner: .chatbot)
-        ]))
+        ChatbotView(messageManager: .mock)
+    }
+}
+
+extension MessageManager {
+    static let mock: MessageManager = MessageManager(messages: .mockMessages)
+}
+
+extension Array where Element == Message {
+    static var mockMessages: [Element] {
+        [
+            Element(
+                content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+                owner: .chatbot
+            ),
+            Element(
+                content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+                owner: .chatbot
+            )
+        ]
     }
 }
