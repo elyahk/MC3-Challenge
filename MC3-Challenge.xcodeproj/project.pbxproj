@@ -37,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3737569729A5130400AF9FDB /* messages.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = messages.geojson; sourceTree = "<group>"; };
 		6E19DD5329A3CF54002B7C94 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		6E19DD5529A3CFD6002B7C94 /* ChatbotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatbotView.swift; sourceTree = "<group>"; };
 		6EA6911929A3B9E60084EF6E /* MC3-Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC3-Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +81,7 @@
 		6EA6911029A3B9E60084EF6E = {
 			isa = PBXGroup;
 			children = (
+				3737569729A5130400AF9FDB /* messages.geojson */,
 				6EA6911B29A3B9E60084EF6E /* MC3-Challenge */,
 				6EA6913129A3B9E70084EF6E /* MC3-ChallengeTests */,
 				6EA6913B29A3B9E70084EF6E /* MC3-ChallengeUITests */,
