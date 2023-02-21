@@ -26,12 +26,16 @@ class Message: ObservableObject, Identifiable {
     }
 }
 
-struct MessageManager {
-    let messages: [Message]
+class MessageManager: ObservableObject {
+    @Published var messages: [Message]
+    
+    init(messages: [Message]) {
+        self.messages = messages
+    }
 }
 
 struct ChatbotView: View {
-    let messageManager: MessageManager
+    @ObservedObject var messageManager: MessageManager
     
     init(messageManager: MessageManager) {
         self.messageManager = messageManager
@@ -45,8 +49,19 @@ struct ChatbotView: View {
                 }
             }
             
-            Rectangle()
-                .frame(height: 80)
+            HStack {
+                Button {
+                    messageManager.messages.append(
+                        Message(content: "Answer", owner: .user)
+                    )
+                } label: {
+                    Text("Answer")
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.borderedProminent)
+                .padding()
+            }
+            .background(Color.gray)
         }
     }
 }
@@ -62,15 +77,15 @@ struct MessageView: View {
         HStack {
             switch message.owner {
             case .chatbot:
-                Spacer()
                 Text(message.content)
                     .background(Color.yellow)
                     .padding([.leading])
+                Spacer()
             case .user:
+                Spacer()
                 Text(message.content)
                     .background(Color.yellow)
                     .padding([.leading])
-                Spacer()
             }
             
         }
@@ -116,6 +131,7 @@ struct ChatbotView_Previews: PreviewProvider {
             .init(content: "Message 1", owner: .chatbot),
             .init(content: "Message 1", owner: .user),
             .init(content: "Message 1", owner: .user),
+            .init(content: "Message 1", owner: .chatbot),
             .init(content: "Message 1", owner: .chatbot)
         ]))
     }
