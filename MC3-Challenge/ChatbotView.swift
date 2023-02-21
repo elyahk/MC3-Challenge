@@ -10,10 +10,10 @@
 
 import SwiftUI
 
-struct Message {
-    let questions: [String]
-    let options: [String]
-    var answers: [String]
+class Message: ObservableObject {
+    var questions: [String] = []
+    let options: [String] = []
+    @Published var answers: [String] = []
 }
 
 struct ChatManager {
@@ -22,7 +22,7 @@ struct ChatManager {
 
 
 struct ChatbotView: View {
-    @State var currentMessage: Message = .init(questions: ["Question", "Question 2"], options: ["Yes", "No"], answers: [])
+    @State var currentMessage: Message = .init()
     
     let chatManager: ChatManager
     
@@ -33,46 +33,57 @@ struct ChatbotView: View {
     var body: some View {
         VStack {
             VStack {
-                ForEach(currentMessage.questions, id: \.self) { question in
-                    HStack {
-                        Text(question)
-                            .background(Color.yellow)
-                            .padding([.leading])
-                        Spacer()
-                    }
-                    .padding(4)
-                }
-                if let firstAnswer = currentMessage.answers.first {
-                    HStack {
-                        Spacer()
-                        Text(firstAnswer)
-                            .background(Color.yellow)
-                            .padding([.trailing])
-                    }
-                }
-                Spacer()
                 
-            }
-            .padding()
-            
-            HStack {
-                ForEach(currentMessage.options, id: \.self) { option in
-                    Button {
-                        currentMessage.answers = [option]
-                    } label: {
-                        Text(option)
+                
+                HStack {
+                    ForEach(currentMessage.options, id: \.self) { option in
+                        Button {
+                            currentMessage.answers = [option]
+                        } label: {
+                            Text(option)
+                        }
                     }
                 }
             }
-
         }
     }
 }
 
+struct MessageView: View {
+    @ObservedObject var message: Message
+    
+    init(message: Message) {
+        self.message = message
+    }
+    
+    var body: some View {
+        ForEach(message.questions, id: \.self) { question in
+            HStack {
+                Text(question)
+                    .background(Color.yellow)
+                    .padding([.leading])
+                Spacer()
+            }
+            .padding(4)
+        }
+        if let firstAnswer = message.answers.first {
+            HStack {
+                Spacer()
+                Text(firstAnswer)
+                    .background(Color.yellow)
+                    .padding([.trailing])
+            }
+        }
+        Spacer()
+    }
+}
+
+
+
 struct ChatbotView_Previews: PreviewProvider {
     static var previews: some View {
         ChatbotView(chatManager: .init(chats: [
-            .init(questions: ["Q"], options: ["O"], answers: [])
+            .init()
         ]))
     }
 }
