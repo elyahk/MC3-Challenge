@@ -81,7 +81,6 @@
 		6EA6911029A3B9E60084EF6E = {
 			isa = PBXGroup;
 			children = (
-				3737569729A5130400AF9FDB /* messages.geojson */,
 				6EA6911B29A3B9E60084EF6E /* MC3-Challenge */,
 				6EA6913129A3B9E70084EF6E /* MC3-ChallengeTests */,
 				6EA6913B29A3B9E70084EF6E /* MC3-ChallengeUITests */,
@@ -102,6 +101,7 @@
 		6EA6911B29A3B9E60084EF6E /* MC3-Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				3737569729A5130400AF9FDB /* messages.geojson */,
 				6EA6911C29A3B9E60084EF6E /* MC3_ChallengeApp.swift */,
 				6EA6912029A3B9E70084EF6E /* Assets.xcassets */,
 				6EA6912529A3B9E70084EF6E /* Persistence.swift */,
