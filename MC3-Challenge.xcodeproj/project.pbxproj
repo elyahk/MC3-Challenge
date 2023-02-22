@@ -16,7 +16,6 @@
 		6E2315AF29A5115E00D80C17 /* MessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2315AE29A5115E00D80C17 /* MessageManager.swift */; };
 		6EA6911D29A3B9E60084EF6E /* MC3_ChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA6911C29A3B9E60084EF6E /* MC3_ChallengeApp.swift */; };
 		6EA6912129A3B9E70084EF6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EA6912029A3B9E70084EF6E /* Assets.xcassets */; };
-		6EA6912429A3B9E70084EF6E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EA6912329A3B9E70084EF6E /* Preview Assets.xcassets */; };
 		6EA6912629A3B9E70084EF6E /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA6912529A3B9E70084EF6E /* Persistence.swift */; };
 		6EA6912929A3B9E70084EF6E /* MC3_Challenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6EA6912729A3B9E70084EF6E /* MC3_Challenge.xcdatamodeld */; };
 		6EA6913329A3B9E70084EF6E /* MC3_ChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA6913229A3B9E70084EF6E /* MC3_ChallengeTests.swift */; };
@@ -52,7 +51,6 @@
 		6EA6911929A3B9E60084EF6E /* MC3-Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC3-Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EA6911C29A3B9E60084EF6E /* MC3_ChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC3_ChallengeApp.swift; sourceTree = "<group>"; };
 		6EA6912029A3B9E70084EF6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6EA6912329A3B9E70084EF6E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6EA6912529A3B9E70084EF6E /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		6EA6912829A3B9E70084EF6E /* MC3_Challenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MC3_Challenge.xcdatamodel; sourceTree = "<group>"; };
 		6EA6912E29A3B9E70084EF6E /* MC3-ChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MC3-ChallengeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,13 +104,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		37988C7B29A64BCA008B5F8E /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		6EA6911029A3B9E60084EF6E = {
 			isa = PBXGroup;
 			children = (
@@ -138,13 +129,11 @@
 			children = (
 				6EA6911C29A3B9E60084EF6E /* MC3_ChallengeApp.swift */,
 				37988C7A29A64BC3008B5F8E /* Models */,
-				37988C7B29A64BCA008B5F8E /* ViewModels */,
 				37988C7929A64BBA008B5F8E /* Views */,
 				6EA6912229A3B9E70084EF6E /* Preview Content */,
 				6EA6912529A3B9E70084EF6E /* Persistence.swift */,
 				6EA6912729A3B9E70084EF6E /* MC3_Challenge.xcdatamodeld */,
 				6EA6912029A3B9E70084EF6E /* Assets.xcassets */,
-				6EA6912329A3B9E70084EF6E /* Preview Assets.xcassets */,
 				3737569929A5278500AF9FDB /* Message.json */,
 			);
 			path = "MC3-Challenge";
@@ -279,7 +268,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6EA6912429A3B9E70084EF6E /* Preview Assets.xcassets in Resources */,
 				3737569A29A5278500AF9FDB /* Message.json in Resources */,
 				6EA6912129A3B9E70084EF6E /* Assets.xcassets in Resources */,
 			);
