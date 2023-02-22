@@ -24,10 +24,6 @@ class ChatbotViewModel: ObservableObject {
     }
 }
 
-extension ChatbotViewModel {
-    static let mock: ChatbotViewModel = ChatbotViewModel(messages: [.long(), .short(), .short(owner: .user), .long()])
-}
-
 struct ChatbotView: View {
     @ObservedObject var viewModel: ChatbotViewModel
     
