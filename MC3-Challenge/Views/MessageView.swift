@@ -21,12 +21,14 @@ struct MessageView: View {
                 Text(message.content)
                     .background(Color.yellow)
                     .padding([.trailing], 100)
+                    .font(.title)
                 Spacer()
             case .user:
                 Spacer()
                 Text(message.content)
                     .background(Color.yellow)
                     .padding([.leading], 100)
+                    .font(.title)
             }
             
         }
@@ -36,6 +38,6 @@ struct MessageView: View {
 
 struct MessageView_Previews: PreviewProvider {
     static var previews: some View {
-        MessageView(message: .init(content: "Message 1", owner: .bot))
+        MessageView(message: .init(content: "Message 1", owner: .user))
     }
 }
