@@ -2,30 +2,40 @@ import SwiftUI
 
 class ChatbotViewModel: ObservableObject {
     @Published var messages: [Message]
+    @Published var options: [[String:String]] = []
+    var database: [Message]
     
-    init(messages: [Message]) {
+    init(messages: [Message], database: [Message] = []) {
         self.messages = messages
+        self.database = database
+        self.options = messages[0].options
     }
     
-    func answerButtonTapped(_ index: Int) {
-        messages.append(Message(content: "Answer", owner: .user))
-        userResponded(index)
+    func answerButtonTapped(_ option: [String: String]) {
+        userResponded(option)
     }
     
-    private func userResponded(_ index: Int) {
+    private func userResponded(_ option: [String: String]) {
         Task {
             do {
                 try await Task.sleep(for: .seconds(0.3))
-                messages.append(.init(content: "Question 2", owner: .bot))
+                if let newMessage = findMessage(key: option["key"] ?? "") {
+                    messages.append(newMessage)
+                
+                    if let nextMessage = findMessage(key: newMessage.answerId) {
+                        messages.append(nextMessage)
+                        options = nextMessage.options
+                    }
+                }
             } catch {
                 
             }
         }
     }
-}
-
-extension ChatbotViewModel {
-    static let mock: ChatbotViewModel = ChatbotViewModel(messages: [.long(), .short(), .short(owner: .user), .long()])
+    
+    private func findMessage(key id: String) -> Message? {
+        database.first(where: { $0.id == id })
+    }
 }
 
 struct ChatbotView: View {
@@ -50,14 +60,16 @@ struct ChatbotView: View {
             }
             
             HStack {
-                Button {
-                    viewModel.answerButtonTapped(0)
-                } label: {
-                    Text("Answer")
-                        .frame(maxWidth: .infinity)
+                ForEach(viewModel.options, id: \.self) { option in
+                    Button {
+                        viewModel.answerButtonTapped(option)
+                    } label: {
+                        Text(option["value"] ?? "")
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .padding()
                 }
-                .buttonStyle(.borderedProminent)
-                .padding()
             }
             .background(Color.gray)
         }

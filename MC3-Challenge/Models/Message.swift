@@ -13,15 +13,19 @@ enum Owner: String, Equatable, Decodable {
 }
 
 class Message: ObservableObject, Identifiable, Equatable, Decodable {
+    var id: String = ""
+    var answerId: String = ""
     var content: String
     var owner: Owner
-    var id: String = ""
     var options: [[String: String]] = []
     var date: Date = .init()
     
-    init(content: String, owner: Owner) {
+    init(id: String = "", answerId: String = "", content: String, owner: Owner, options: [[String: String]] = []) {
+        self.id = id
         self.content = content
         self.owner = owner
+        self.options = options
+        self.answerId = answerId
     }
     
     // initialize decoder...
