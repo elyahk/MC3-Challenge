@@ -14,7 +14,7 @@ struct MC3_ChallengeApp: App {
     var body: some Scene {
         WindowGroup {
             let messages = try? loadJSONMessages()
-            let viewModel = ChatbotViewModel(messages: messages ?? [])
+//            let viewModel = ChatbotViewModel(messages: messages ?? [])
             ChatbotView(viewModel: .mock)
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
