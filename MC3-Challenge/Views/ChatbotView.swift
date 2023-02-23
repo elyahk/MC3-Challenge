@@ -1,7 +1,7 @@
 import SwiftUI
 
 enum Erors: Error {
-    case NoMessageError
+    case NoMessageError(for: String)
 }
 
 class ChatbotViewModel: ObservableObject {
@@ -38,7 +38,7 @@ class ChatbotViewModel: ObservableObject {
     
     private func findMessage(key id: String) throws -> Message {
         let message = database.first(where: { $0.id == id })
-        guard let message = message else { throw Erors.NoMessageError }
+        guard let message = message else { throw Erors.NoMessageError(for: id) }
         
         return message
     }
@@ -46,6 +46,7 @@ class ChatbotViewModel: ObservableObject {
 
 struct ChatbotView: View {
     @ObservedObject var viewModel: ChatbotViewModel
+    @State var selectedValue: String = ""
     
     init(viewModel: ChatbotViewModel) {
         self.viewModel = viewModel
@@ -63,6 +64,26 @@ struct ChatbotView: View {
                 .onChange(of: viewModel.messages) { messages in
                     scrollView.scrollTo(messages.last?.id)
                 }
+            }
+            
+            VStack(spacing: 0.3) {
+                ForEach(viewModel.options, id: \.self) { option in
+                    Button {
+                        selectedValue = option.value
+                    } label: {
+                        HStack {
+                            Label(option.value, systemImage: selectedValue == option.value ? "circle.fill" : "circle")
+                                .font(.system(.headline))
+                            Spacer()
+                        }
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding(10.0)
+                    .background(Color.red)
+                    .foregroundColor(.white)
+                }
+                
+                
             }
             
             HStack {
