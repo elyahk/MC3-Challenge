@@ -1,5 +1,9 @@
 import SwiftUI
 
+enum Erors: Error {
+    case NoMessageError
+}
+
 class ChatbotViewModel: ObservableObject {
     @Published var messages: [Message]
     @Published var options: [Option] = []
@@ -12,29 +16,31 @@ class ChatbotViewModel: ObservableObject {
     }
     
     func answerButtonTapped(_ option: Option) {
-        userResponded(option)
-    }
-    
-    private func userResponded(_ option: Option) {
         Task {
             do {
-                try await Task.sleep(for: .seconds(0.3))
-                if let newMessage = findMessage(key: option.key) {
-                    messages.append(newMessage)
-                
-                    if let nextMessage = findMessage(key: newMessage.answerId) {
-                        messages.append(nextMessage)
-                        options = nextMessage.options
-                    }
-                }
+                try await userResponded(option)
             } catch {
                 
             }
         }
     }
     
-    private func findMessage(key id: String) -> Message? {
-        database.first(where: { $0.id == id })
+    private func userResponded(_ option: Option) async throws {
+        try await Task.sleep(for: .seconds(0.3))
+        let newMessage = try findMessage(key: option.key)
+        messages.append(newMessage)
+        
+        let nextMessage = try findMessage(key: newMessage.answerId)
+        try await Task.sleep(for: .seconds(0.3))
+        messages.append(nextMessage)
+        options = nextMessage.options
+    }
+    
+    private func findMessage(key id: String) throws -> Message {
+        let message = database.first(where: { $0.id == id })
+        guard let message = message else { throw Erors.NoMessageError }
+        
+        return message
     }
 }
 
