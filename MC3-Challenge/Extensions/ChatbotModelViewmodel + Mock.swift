@@ -2,11 +2,9 @@ extension ChatbotViewModel {
     static let mock: ChatbotViewModel = ChatbotViewModel(
         currentMessage:
                 .init(id: "1", content: "Hello", owner: .bot, options: [
-                    .init(key: "2", value: "Hi"),
-                    .init(key: "10", value: "Hi 2"),
-                    .init(key: "11", value: "Hi 3")
+                    .init(key: "2", value: "Hi")
+                    
                 ]),
-        messages: [],
         database: [
             .init(id: "1", content: "Hello", owner: .bot, options: [.init(key: "2", value: "Hi")]),
             .init(id: "2", answerId: "3", content: "Hi 2", owner: .user),

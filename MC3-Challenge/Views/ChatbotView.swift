@@ -5,14 +5,14 @@ enum Erors: Error {
 }
 
 class ChatbotViewModel: ObservableObject {
-    @Published var messages: [Message]
+    @Published var messages: [Message] = []
     @Published var currentMessage: Message
     var database: [Message]
     
-    init(currentMessage: Message, messages: [Message], database: [Message] = []) {
+    init(currentMessage: Message, database: [Message] = []) {
         self.currentMessage = currentMessage
-        self.messages = messages
         self.database = database
+        self.messages.append(currentMessage)
     }
     
     func answerButtonTapped(_ option: Option) {
@@ -70,48 +70,6 @@ struct ChatbotView: View {
             })
             
             .background(Color.gray)
-        }
-    }
-}
-
-struct SendMessageView: View {
-    @ObservedObject var message: Message
-    @State var selectedOption: Option = Option(key: "", value: "")
-    var send: (Option) -> Void
-
-    var body: some View {
-        VStack(spacing: 0.0) {
-            ForEach(message.options, id: \.self) { option in
-                Spacer()
-                    .frame(maxWidth: .infinity, maxHeight: 0.3)
-                    .background(Color.black)
-                Button {
-                    selectedOption = option
-                } label: {
-                    HStack {
-                        Label(option.value, systemImage: selectedOption.value == option.value ? "circle.fill" : "circle")
-                            .font(.system(.headline))
-                        Spacer()
-                    }
-                }
-                .frame(maxWidth: .infinity)
-                .padding(10.0)
-                .background(Color.white)
-                .foregroundColor(.black)
-            }
-
-            Spacer()
-                .frame(maxWidth: .infinity, maxHeight: 0.3)
-                .background(Color.black)
-
-            Button {
-                send(selectedOption)
-            } label: {
-                Text("Send")
-                    .frame(maxWidth: .infinity)
-            }
-            .buttonStyle(.borderedProminent)
-            .padding(12)
         }
     }
 }
