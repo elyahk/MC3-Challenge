@@ -12,15 +12,20 @@ enum Owner: String, Equatable, Decodable {
     case user
 }
 
+struct Option: Decodable, Hashable {
+    var key: String
+    var value: String
+}
+
 class Message: ObservableObject, Identifiable, Equatable, Decodable {
     var id: String = ""
     var answerId: String = ""
     var content: String
     var owner: Owner
-    var options: [[String: String]] = []
     var date: Date = .init()
+    var options: [Option] = []
     
-    init(id: String = "", answerId: String = "", content: String, owner: Owner, options: [[String: String]] = []) {
+    init(id: String = "", answerId: String = "", content: String, owner: Owner, options: [Option] = []) {
         self.id = id
         self.content = content
         self.owner = owner
@@ -42,8 +47,7 @@ class Message: ObservableObject, Identifiable, Equatable, Decodable {
         self.content = try container.decode(String.self, forKey: .content)
         self.owner = try container.decode(Owner.self, forKey: .owner)
         self.id = try container.decode(String.self, forKey: .id)
-        let options = try? container.decode([[String : String]].self, forKey: .options)
-        self.options = options ?? [] // optional can be empty
+        self.options = try container.decode([Option].self, forKey: .options)
         self.date = .init() // date is not in json, just initialize here
     }
     

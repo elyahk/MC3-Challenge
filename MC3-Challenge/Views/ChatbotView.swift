@@ -2,7 +2,7 @@ import SwiftUI
 
 class ChatbotViewModel: ObservableObject {
     @Published var messages: [Message]
-    @Published var options: [[String:String]] = []
+    @Published var options: [Option] = []
     var database: [Message]
     
     init(messages: [Message], database: [Message] = []) {
@@ -11,15 +11,15 @@ class ChatbotViewModel: ObservableObject {
         self.options = messages[0].options
     }
     
-    func answerButtonTapped(_ option: [String: String]) {
+    func answerButtonTapped(_ option: Option) {
         userResponded(option)
     }
     
-    private func userResponded(_ option: [String: String]) {
+    private func userResponded(_ option: Option) {
         Task {
             do {
                 try await Task.sleep(for: .seconds(0.3))
-                if let newMessage = findMessage(key: option["key"] ?? "") {
+                if let newMessage = findMessage(key: option.key) {
                     messages.append(newMessage)
                 
                     if let nextMessage = findMessage(key: newMessage.answerId) {
@@ -64,7 +64,7 @@ struct ChatbotView: View {
                     Button {
                         viewModel.answerButtonTapped(option)
                     } label: {
-                        Text(option["value"] ?? "")
+                        Text(option.value)
                             .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(.borderedProminent)
