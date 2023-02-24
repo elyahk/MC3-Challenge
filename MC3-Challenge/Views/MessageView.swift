@@ -19,8 +19,9 @@ struct MessageView: View {
             ChatBubble(direction: message.owner) {
                 Text(message.contents.first ?? "")
                     .padding()
-                    .background(Color.yellow)
-                    .font(.title)
+                    .background(Color.init(uiColor: .systemGray6))
+                    .foregroundColor(.black)
+                    .font(.title3)
 
             }
         }
