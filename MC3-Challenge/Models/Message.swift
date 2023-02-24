@@ -24,7 +24,7 @@ class Message: ObservableObject, Identifiable, Equatable, Decodable {
     var owner: Owner = .bot
     var options: [Option] = []
     
-    init(id: String = "", contents: [String], owner: Owner = .bot, options: [Option] = []) {
+    init(id: String = "\(UUID())", contents: [String], owner: Owner = .bot, options: [Option] = []) {
         self.id = id
         self.contents = contents
         self.owner = owner
@@ -49,7 +49,7 @@ class Message: ObservableObject, Identifiable, Equatable, Decodable {
     }
     
     static func == (lhs: Message, rhs: Message) -> Bool {
-        lhs.id == rhs.id
+        lhs.id == rhs.id && lhs.contents == rhs.contents && lhs.options == rhs.options && lhs.owner == rhs.owner
     }
 }
 

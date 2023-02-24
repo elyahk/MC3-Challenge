@@ -26,14 +26,17 @@ class ChatbotViewModel: ObservableObject {
     }
     
     private func userResponded(_ option: Option) async throws {
-        try await Task.sleep(for: .seconds(0.3))
+        try await Task.sleep(for: .seconds(0.1))
         let userMessage = Message(contents: [option.value], owner: .user)
         messages.append(userMessage)
         
         let nextMessage = try findMessage(key: option.key)
         try await Task.sleep(for: .seconds(0.3))
         messages.append(nextMessage)
-        currentMessage = nextMessage
+        
+        DispatchQueue.main.async {
+            self.currentMessage = nextMessage
+        }
     }
     
     private func findMessage(key id: String) throws -> Message {
