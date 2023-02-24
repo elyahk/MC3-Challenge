@@ -17,20 +17,41 @@ struct Option: Decodable, Hashable {
     var value: String
 }
 
+class Message2: ObservableObject, Identifiable, Decodable {
+    var content: String
+    var value: Int
+    var owner: Owner = .bot
+    var options: [String] = []
+    
+    init(content: String, value: Int, owner: Owner = .bot, options: [String]) {
+        self.content = content
+        self.value = value
+        self.owner = owner
+        self.options = options
+    }
+}
+
 class Message: ObservableObject, Identifiable, Equatable, Decodable {
     var id: String = ""
     var answerId: String = ""
     var content: String
-    var owner: Owner
+    var owner: Owner = .bot
     var date: Date = .init()
     var options: [Option] = []
     
-    init(id: String = "", answerId: String = "", content: String, owner: Owner, options: [Option] = []) {
+    init(id: String = "", answerId: String = "", content: String, owner: Owner = .bot, options: [Option] = []) {
         self.id = id
         self.content = content
         self.owner = owner
         self.options = options
         self.answerId = answerId
+    }
+    
+    init(content: String, value: Int, owner: Owner = .bot, options: [String]) {
+        self.content = content
+        self.id = "\(value)"
+        self.owner = owner
+        self.options = [Option(key: "", value: "")]
     }
     
     // initialize decoder...
