@@ -58,3 +58,14 @@ struct SendMessageView: View {
     }
 }
 
+
+struct SendMessageView_Previews: PreviewProvider {
+    static var previews: some View {
+        SendMessageView(message: .init(contents: [""], options: [
+            .init(key: "5", value: "Hi"),
+            .init(key: "6", value: "Hi 2"),
+        ])) { _ in
+            
+        }
+    }
+}

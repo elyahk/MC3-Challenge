@@ -1,8 +1,14 @@
 extension ChatbotViewModel {
     static let mock: ChatbotViewModel = ChatbotViewModel(
-        currentMessage: Message(id: "1", contents: ["Hello"], options: [.init(key: "2", value: "Hi")]),
+        currentMessage: Message(id: "1", contents: ["Hello"], options: [
+            .init(key: "2", value: "Hi"),
+            .init(key: "6", value: "Hi 2")
+        ]),
         database: [
-            Message(id: "1", contents: ["Hello"], options: [.init(key: "2", value: "Hi")]),
+            Message(id: "1", contents: ["Hello"], options: [
+                .init(key: "2", value: "Hi"),
+                .init(key: "6", value: "Hi 2")
+            ]),
             Message(id: "2", contents: ["Nice to meet you.", "Let me tell you more about Tax Code (Codice Fiscale):"], options: [.init(key: "3", value: "Ok")]),
             Message(id: "3", contents: ["It's an unique identification number to be able to pay your tax and receive access to a variety of services. Do you want to know, more?"], options: [.init(key: "4", value: "yes")]),
             Message(id: "4", contents: ["For instance: Sign an employment contract or work as a freelancer. Pay Income Tax. Open bank account in Italy. Gain an access to, Health Care System. Obtain an Italian mobile phone number. Sign contract for utility bills. Rent property for more than one month."], options: [.init(key: "5", value: "Interesting")]),

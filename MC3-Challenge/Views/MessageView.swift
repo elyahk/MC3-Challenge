@@ -16,31 +16,14 @@ struct MessageView: View {
     
     var body: some View {
         VStack {
-            switch message.owner {
-            case .bot:
-                ForEach(message.contents, id: \.self) { text in
-                    HStack {
-                        Text(text)
-                            .background(Color.yellow)
-                            .padding([.trailing], 100)
-                            .font(.title)
-                        Spacer()
-                    }
-                }
-            case .user:
-                ForEach(message.contents, id: \.self) { text in
-                    HStack {
-                        Spacer()
-                        Text(text)
-                            .background(Color.yellow)
-                            .padding([.leading], 100)
-                            .font(.title)
-                    }
-                }
+            ChatBubble(direction: message.owner) {
+                Text(message.contents.first ?? "")
+                    .padding()
+                    .background(Color.yellow)
+                    .font(.title)
+
             }
-            
         }
-        .padding(4)
     }
 }
 
