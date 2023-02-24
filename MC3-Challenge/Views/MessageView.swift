@@ -15,20 +15,28 @@ struct MessageView: View {
     }
     
     var body: some View {
-        HStack {
+        VStack {
             switch message.owner {
             case .bot:
-                Text(message.content)
-                    .background(Color.yellow)
-                    .padding([.trailing], 100)
-                    .font(.title)
-                Spacer()
+                ForEach(message.contents, id: \.self) { text in
+                    HStack {
+                        Text(text)
+                            .background(Color.yellow)
+                            .padding([.trailing], 100)
+                            .font(.title)
+                        Spacer()
+                    }
+                }
             case .user:
-                Spacer()
-                Text(message.content)
-                    .background(Color.yellow)
-                    .padding([.leading], 100)
-                    .font(.title)
+                ForEach(message.contents, id: \.self) { text in
+                    HStack {
+                        Spacer()
+                        Text(text)
+                            .background(Color.yellow)
+                            .padding([.leading], 100)
+                            .font(.title)
+                    }
+                }
             }
             
         }
@@ -38,6 +46,6 @@ struct MessageView: View {
 
 struct MessageView_Previews: PreviewProvider {
     static var previews: some View {
-        MessageView(message: .init(content: "Message 1", owner: .user))
+        MessageView(message: .init(contents: ["Message 1"], owner: .user))
     }
 }

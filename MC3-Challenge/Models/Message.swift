@@ -17,41 +17,18 @@ struct Option: Decodable, Hashable {
     var value: String
 }
 
-class Message2: ObservableObject, Identifiable, Decodable {
-    var content: String
-    var value: Int
-    var owner: Owner = .bot
-    var options: [String] = []
-    
-    init(content: String, value: Int, owner: Owner = .bot, options: [String]) {
-        self.content = content
-        self.value = value
-        self.owner = owner
-        self.options = options
-    }
-}
-
 class Message: ObservableObject, Identifiable, Equatable, Decodable {
     var id: String = ""
-    var answerId: String = ""
-    var content: String
+    var content: String = ""
+    var contents: [String] = []
     var owner: Owner = .bot
-    var date: Date = .init()
     var options: [Option] = []
     
-    init(id: String = "", answerId: String = "", content: String, owner: Owner = .bot, options: [Option] = []) {
+    init(id: String = "", contents: [String], owner: Owner = .bot, options: [Option] = []) {
         self.id = id
-        self.content = content
+        self.contents = contents
         self.owner = owner
         self.options = options
-        self.answerId = answerId
-    }
-    
-    init(content: String, value: Int, owner: Owner = .bot, options: [String]) {
-        self.content = content
-        self.id = "\(value)"
-        self.owner = owner
-        self.options = [Option(key: "", value: "")]
     }
     
     // initialize decoder...
@@ -69,7 +46,6 @@ class Message: ObservableObject, Identifiable, Equatable, Decodable {
         self.owner = try container.decode(Owner.self, forKey: .owner)
         self.id = try container.decode(String.self, forKey: .id)
         self.options = try container.decode([Option].self, forKey: .options)
-        self.date = .init() // date is not in json, just initialize here
     }
     
     static func == (lhs: Message, rhs: Message) -> Bool {
@@ -80,14 +56,14 @@ class Message: ObservableObject, Identifiable, Equatable, Decodable {
 extension Message {
     static func long(owner: Owner = .bot) -> Message {
         .init(
-            content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, industry's standard dummy text ever since the 1500s",
+            contents: ["Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, industry's standard dummy text ever since the 1500s"],
             owner: owner
         )
     }
     
     static func short(owner: Owner = .bot) -> Message {
         .init(
-            content: "Lorem Ipsum is simply",
+            contents: ["Lorem Ipsum is simply"],
             owner: owner
         )
     }
