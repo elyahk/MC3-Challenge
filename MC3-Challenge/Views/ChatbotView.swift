@@ -72,7 +72,7 @@ struct ChatbotView: View {
                 viewModel.answerButtonTapped(option)
             })
             
-            .background(Color.gray)
+            .background(Color.init(uiColor: .systemGray5))
         }
     }
 }
