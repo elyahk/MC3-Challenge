@@ -9,16 +9,16 @@ import SwiftUI
 
 
 struct ChatBubble<Content>: View where Content: View {
-    let direction: ChatBubbleShape.Direction
+    let direction: Owner
     let content: () -> Content
-    init(direction: ChatBubbleShape.Direction, @ViewBuilder content: @escaping () -> Content) {
+    init(direction: Owner, @ViewBuilder content: @escaping () -> Content) {
             self.content = content
             self.direction = direction
     }
     
     var body: some View {
         HStack {
-            if direction == .right {
+            if direction == .user {
                 Spacer()
             }
             content()
@@ -26,14 +26,14 @@ struct ChatBubble<Content>: View where Content: View {
                // .padding(.all, 20)
                
             
-            if direction == .left {
+            if direction == .bot {
                 Spacer()
             }
                 
            
                 
-        }.padding([(direction == .left) ? .leading : .trailing, .top, .bottom], 20)
-        .padding((direction == .right) ? .leading : .trailing, 50)
+        }.padding([(direction == .bot) ? .leading : .trailing, .top, .bottom], 20)
+        .padding((direction == .user) ? .leading : .trailing, 50)
        // .padding(.all, 20)
         .foregroundColor(.white )
        
@@ -41,15 +41,12 @@ struct ChatBubble<Content>: View where Content: View {
 }
 
 struct ChatBubbleShape: Shape {
-    enum Direction {
-        case left
-        case right
-    }
+   
     
-    let direction: Direction
+    let direction: Owner
     
     func path(in rect: CGRect) -> Path {
-        return (direction == .left) ? getLeftBubblePath(in: rect) : getRightBubblePath(in: rect)
+        return (direction == .bot) ? getLeftBubblePath(in: rect) : getRightBubblePath(in: rect)
     }
     
     private func getLeftBubblePath(in rect: CGRect) -> Path {
@@ -124,7 +121,7 @@ struct Demo: View {
     var body: some View {
         ScrollView {
             VStack {
-                ChatBubble(direction: .left) {
+                ChatBubble(direction: .bot) {
                    
                     Image(systemName: "mail")
                         .font(.title2)
@@ -132,7 +129,7 @@ struct Demo: View {
                          .background(Color.blue)
                         
                 }
-                ChatBubble(direction: .right) {
+                ChatBubble(direction: .user) {
                     Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit.  ")
                         .padding(.all, 20)
 
