@@ -45,7 +45,10 @@ struct SendMessageView: View {
                         .background(Color.black)
                     
                     Button {
-                        send(selectedOption)
+//              Check for selected option otherwise shows empty bubble
+                        if !selectedOption.value.isEmpty {
+                            send(selectedOption)
+                        }
                     } label: {
                         Text("Send")
                             .frame(maxWidth: .infinity)
