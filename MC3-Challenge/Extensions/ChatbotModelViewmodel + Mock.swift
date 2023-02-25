@@ -1,7 +1,7 @@
 extension ChatbotViewModel {
     static let mock: ChatbotViewModel = ChatbotViewModel(
         currentMessage:
-            Message(id: "1", contents: ["Hello"], options: [
+            Message(id: "1", contents: ["Hello"], owner: .bot, options: [
             .init(key: "2", value: "Hi")
 //            ,
 //            .init(key: "6", value: "Hi 2")
@@ -15,7 +15,7 @@ extension ChatbotViewModel {
             
             Message(id: "3", contents: ["It's an Unique Identification Number used to pay your Tax and to receive access to a variety of other services. \nDo you want to know, more?"], options: [.init(key: "4", value: "Oh, yeah.")]),
             
-            Message(id: "4", contents: ["For instance: \nYou can sign an employment contract or work as a freelancer. Pay Income Tax. \nOpen bank account in Italy. Gain an access to Health Care System. Obtain an Italian mobile phone number. Sign contract for utility bills or Rent property for more than one month."], options: [.init(key: "5", value: "Interesting")]),
+            Message(id: "4", contents: ["For instance: You can sign an employment contract or work as a freelancer. Pay Income Tax.", "Open bank account in Italy. Gain an access to Health Care System. Obtain an Italian mobile phone number. Sign contract for utility bills or Rent property for more than one month."], options: [.init(key: "5", value: "Interesting")]),
             
             Message(id: "5", contents: ["How to obtain Codice Fiscale Certificate?"], options: [.init(key: "6", value: "Go for it!")]),
             
@@ -23,7 +23,7 @@ extension ChatbotViewModel {
 
             Message(id: "7", contents: ["Now, let's talk about documents. First of all, are you European Citizen?"], options: [.init(key: "8", value: "Yes"), .init(key: "9", value: "No")]),
 //          // 8.yes, 9. no
-            Message(id: "8", contents: ["You need these documents: \n *Passport, *Confirmation of Study, *Application for a Tax Code in Italian language"], options: [.init(key: "10", value: "Take into account.")]),
+            Message(id: "8", contents: ["You need these documents:", "Passport, Confirmation of Study, Application for a Tax Code in Italian language"], options: [.init(key: "10", value: "Take into account.")]),
                 // yes
 //          // NON-EU Citizen
             Message(id: "9", contents: ["Non-EU (info for me:) You need these documents: Passport, Confirmation of Study, Italian version of Form for Codice, Fiscale, etc. update..."], options: [.init(key: "10", value: "Next, please!")]),

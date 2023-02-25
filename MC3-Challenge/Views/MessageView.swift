@@ -17,7 +17,10 @@ struct MessageView: View {
     var body: some View {
         VStack {
             ChatBubble(direction: message.owner) {
-                Text(message.contents.first ?? "")
+                ForEach(message.contents, id: \.self) { message in
+                    Text(message)
+                }
+//                Text(message.contents.first ?? "")
                     .padding()
                     .background(Color.init(uiColor: .systemGray6))
                     .foregroundColor(.black)
@@ -30,6 +33,6 @@ struct MessageView: View {
 
 struct MessageView_Previews: PreviewProvider {
     static var previews: some View {
-        MessageView(message: .init(contents: ["Message 1"], owner: .user))
+        MessageView(message: .init(contents: ["Message 1", "Message2"], owner: .user))
     }
 }
