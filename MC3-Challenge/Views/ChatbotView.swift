@@ -4,6 +4,7 @@ enum Erors: Error {
     case NoMessageError(for: String)
 }
 
+@MainActor
 class ChatbotViewModel: ObservableObject {
     @Published var messages: [Message] = []
     @Published var currentMessage: Message
