@@ -50,7 +50,7 @@
 		6E2315AA29A510CF00D80C17 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		6E2315AC29A5114C00D80C17 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		6E2315AE29A5115E00D80C17 /* MessageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageManager.swift; sourceTree = "<group>"; };
-		6EA6911929A3B9E60084EF6E /* MC3-Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC3-Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EA6911929A3B9E60084EF6E /* Struffoli.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Struffoli.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EA6911C29A3B9E60084EF6E /* MC3_ChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC3_ChallengeApp.swift; sourceTree = "<group>"; };
 		6EA6912029A3B9E70084EF6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6EA6912529A3B9E70084EF6E /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 		6EA6911A29A3B9E60084EF6E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6EA6911929A3B9E60084EF6E /* MC3-Challenge.app */,
+				6EA6911929A3B9E60084EF6E /* Struffoli.app */,
 				6EA6912E29A3B9E70084EF6E /* MC3-ChallengeTests.xctest */,
 				6EA6913829A3B9E70084EF6E /* MC3-ChallengeUITests.xctest */,
 			);
@@ -195,7 +195,7 @@
 			);
 			name = "MC3-Challenge";
 			productName = "MC3-Challenge";
-			productReference = 6EA6911929A3B9E60084EF6E /* MC3-Challenge.app */;
+			productReference = 6EA6911929A3B9E60084EF6E /* Struffoli.app */;
 			productType = "com.apple.product-type.application";
 		};
 		6EA6912D29A3B9E70084EF6E /* MC3-ChallengeTests */ = {
@@ -480,6 +480,8 @@
 				DEVELOPMENT_TEAM = 8T58FH89LR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Struffoli;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -491,7 +493,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "elyahk.MC3-Challenge";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Struffoli;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -509,6 +511,8 @@
 				DEVELOPMENT_TEAM = 8T58FH89LR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Struffoli;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -520,7 +524,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "elyahk.MC3-Challenge";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Struffoli;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
