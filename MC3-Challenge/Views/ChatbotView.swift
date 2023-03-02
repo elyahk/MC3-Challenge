@@ -55,8 +55,14 @@ struct ChatbotView: View {
         self.viewModel = viewModel
     }
     
+    let greeting: LocalizedStringKey = "greeting"
+    
     var body: some View {
         VStack {
+//            Text("Welcome")
+            Text(greeting)
+                .font(.title)
+                .fontWeight(.regular)
             ScrollViewReader { scrollView in
                 ScrollView(.vertical) {
                     ForEach(viewModel.messages) { message in
