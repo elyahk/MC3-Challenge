@@ -65,6 +65,8 @@
 		6EA6913E29A3B9E70084EF6E /* MC3_ChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC3_ChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		6EF40DBE29A663A800084E8A /* ChatbotModelViewmodel + Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatbotModelViewmodel + Mock.swift"; sourceTree = "<group>"; };
 		85487A0729A8FDB600D56ED5 /* ChatBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubble.swift; sourceTree = "<group>"; };
+		D0CB47AF29B0D7A300DDD54D /* Playground_RU.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Playground_RU.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		D0CB47B029B0EB9E00DDD54D /* Playground_FR.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Playground_FR.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,8 @@
 				6EA6912029A3B9E70084EF6E /* Assets.xcassets */,
 				3737569929A5278500AF9FDB /* Message.json */,
 				372DC0D629B0B709003F3855 /* Localizable.strings */,
+				D0CB47AF29B0D7A300DDD54D /* Playground_RU.playground */,
+				D0CB47B029B0EB9E00DDD54D /* Playground_FR.playground */,
 			);
 			path = "MC3-Challenge";
 			sourceTree = "<group>";
