@@ -1,11 +1,32 @@
 import UIKit
 
+struct Message {
+    var id: String = ""
+    var contents: [String] = []
+    var options: [Option] = []
+    
+    init(id: String = "\(UUID())", contents: [String], options: [Option] = []) {
+        self.id = id
+        self.contents = contents
+        self.options = options
+    }
+    
+}
+struct Option: Decodable, Hashable {
+    var key: String
+    var value: String
+}
+
+enum Owner: String, Equatable, Decodable {
+    case bot
+    case user
+}
+
 var database = [
-            Message(id: "0", contents: ["Привет"], owner: .bot, options: [
-            .init(key: "1", value: "Привет"),
+            Message(id: "0", contents: ["Привет"], options: [
+            .init(key: "1", value: "Привет")]),
             Message(id: "1", contents: ["Приятно познакомиться."], options: [
-                .init(key: "2", value: "Взаимно.")
-            ]),
+                .init(key: "2", value: "Взаимно.")]),
             Message(id: "2", contents: ["Давай я раскажу тебе подробнее о кодиче фискале, налоговом коде"], options: [.init(key: "3", value: "Окей")]),
             
             Message(id: "3", contents: ["Это уникальный идентификационный номер, используемый для уплаты налогов и получения доступа к множеству других услуг. \nХочешь узнать больше?"], options: [.init(key: "4", value: "Да, конечно.")]),
@@ -28,19 +49,6 @@ var database = [
             Message(id: "10", contents: ["Хочешь знать, что дальше?"], options: [.init(key: "11", value: "Да, пожалуйста.")]),
 //            // for Yes
 
-//            INSTEAD ANOTHER TREE - WE SAY: if you don't have the form yet. Click and download.'
-
-//            // FORM 12-13, 12-14 (for both)
-//            Message(content: "Related to the form for Tax Code. Have you filled your form?", value: 12, options: ["yes", "no"]),
-//            // yes 13
-//
-//            Message(content: "You're smart Cookie.", value: 13, options: []),
-//            // yes -> bye
-//
-//            // To Download || show forms to download.
-//            Message(content: "Choose your prefered language/s:", value: 14, options: ["en", "it", "es", "fr", "de"]),
-//
-//
             // Appointment - How do we redirect to the website?
             Message(id: "11", contents: ["Последний, но тем не менее важный вопрос. Ты уже записался на прием?"], options: [.init(key: "12", value: "Да"), .init(key: "13", value: "Нет")]),
             

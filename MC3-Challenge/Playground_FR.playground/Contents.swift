@@ -5,7 +5,7 @@ import UIKit
 
 var database = [
             Message(id: "0", contents: ["Salut"], owner: .bot, options: [
-                .init(key: "1", value: "Salut"),
+                .init(key: "1", value: "Salut")]),
             Message(id: "1", contents: ["Ravi de vous rencontrer."], options: [
                 .init(key: "2", value: "Réciproquement.")
             ]),
@@ -30,19 +30,6 @@ var database = [
 //           //FOR BOTH
             Message(id: "10", contents: ["Voulez-vous savoir quelle est la prochaine étape ?"], options: [.init(key: "11", value: "Oui s'il te plaît.")]),
 //            // for Yes
-
-//            INSTEAD ANOTHER TREE - WE SAY: if you don't have the form yet. Click and download.'
-
-//            // FORM 12-13, 12-14 (for both)
-//            Message(content: "Related to the form for Tax Code. Have you filled your form?", value: 12, options: ["yes", "no"]),
-//            // yes 13
-//
-//            Message(content: "You're smart Cookie.", value: 13, options: []),
-//            // yes -> bye
-//
-//            // To Download || show forms to download.
-//            Message(content: "Choose your prefered language/s:", value: 14, options: ["en", "it", "es", "fr", "de"]),
-//
 //
             // Appointment - How do we redirect to the website?
             Message(id: "11", contents: ["Dernière question, mais néanmoins importante. Avez-vous déjà pris rendez-vous ?"], options: [.init(key: "12", value: "Oui"), .init(key: "13", value: "Non")]),
@@ -59,3 +46,4 @@ var database = [
             // END
             Message(id: "15", contents: ["Fin du chat"], options: [])
         ]
+print(database)
