@@ -1,44 +1,179 @@
 {
     "messages": [
         {
-            "content": "hello",
+            "contents": ["Nice to meet you."],
             "owner": "bot",
             "id": "1",
-            "options": [{"key": "2", "value": "Hi"}]
+            "options": [
+                {
+                    "key": "2", "value": "Nice to meet you too."
+                    
+                }
+            ]
         },
         {
-            "content": "Hi",
-            "owner": "user",
-            "id": "2"
-        },
-        {
-            "content": "appoinment",
+            "contents": "Let me tell you more about Codice Fiscale...",
             "owner": "bot",
-            "options": [{"key": "4", "value": "yes"}, {"key": "6", "value": "no"}],
-            "id": "3"
+            "id": "2",
+            "options": [
+                {
+                    "key": "3", "value": "Ok"
+                    
+                }
+            ]
+        },
+        {
+            "contents": ["It's an Unique Identification Number used to pay your Tax and to receive access to a variety of other services. \nDo you want to know, more?"],
+            "owner": "bot",
+            "id": "3",
+            "options": [
+                {
+                    "key": "4", "value": "Oh, yeah."
+                    
+                }
+            ]
+        },
+        {
+            "contents": ["For instance: You can sign an employment contract or work as a freelancer. Pay Income Tax., Open bank account in Italy. Gain an access to Health Care System. Obtain an Italian mobile phone number. Sign contract for utility bills or Rent property for more than one month."],
+            "owner": "bot",
+            "id": "4",
+            "options": [
+                {
+                    "key": "5", "value": "Interesting"
+                    
+                }
+            ]
+        },
+        {
+            "contents": ["How to obtain Codice Fiscale Certificate?"],
+            "owner": "bot",
+            "id": "5",
+            "options": [
+                {
+                    "key": "6", "value": "Go for it!"
+                    
+                }
+            ]
+        },
+        {
+            "contents": ["You can go to any office of the Italian Revenue Agency to get Tax Code Certificate or book appointment online. We will help you with it later, on."],
+            "owner": "bot",
+            "id": "6",
+            "options": [
+                {
+                    "key": "7", "value": "Let's continue."
+                    
+                }
+            ]
+        },
+        {
+            "contents": ["Now, let's talk about documents. First of all, are you European Citizen?"],
+            "owner": "bot",
+            "id": "7",
+            "options": [
+                {
+                    "key": "8", "value": "Yes"
+                    
+                },
+                {
+                    "key": "9", "value": "No"
+                    
+                }
+            ]
         },
         
         {
-            "content": "yes",
-            "owner": "user",
-            "id": "4"
-        },
-        {
-            "content": "form",
+            "contents": ["You need these documents: Passport, Confirmation of Study, Application for a Tax Code in Italian language"],
             "owner": "bot",
-            "id": "5"
+            "id": "8",
+            "options": [
+                {
+                    "key": "10", "value": "Take into account."
+                    
+                }
+            ]
         },
         {
-            "content": "no",
-            "owner": "user",
-            "id": "6"
-        },
-        {
-            "content": "help app",
+            "contents": ["You need these documents: Passport, Confirmation of Study, Italian version of Form for Codice Fiscale, Visa"],
             "owner": "bot",
-            "options": [{"key": "8", "value": "Sure"}],
-            "id": "7"
+            "id": "9",
+            "options": [
+                {
+                    "key": "10", "value": "Next, please!"
+                    
+                }
+            ]
+        },
+        {
+            "contents": ["Do you want to know what's next?"],
+            "owner": "bot",
+            "id": "10",
+            "options": [
+                {
+                    "key": "11", "value": "Yes, please."
+                    
+                }
+            ]
+        },
+        {
+            "contents": ["Last but not least. Have you already booked your appointment?"],
+            "owner": "bot",
+            "id": "11",
+            "options": [
+                {
+                    "key": "12", "value": "Yes"
+                    
+                },
+                {
+                    "key": "13", "value": "No"
+                    
+                }
+            ]
+        },
+        {
+            "contents": ["Looks like, you are set. Wish you a lot of luck."],
+            "owner": "bot",
+            "id": "12",
+            "options": [
+                {
+                    "key": "15", "value": "Thank you. Bye"
+                    
+                }
+            ]
+        },
+        {
+            "contents": ["We'll help you with it to book that online."],
+            "owner": "bot",
+            "id": "13",
+            "options": [
+                {
+                    "key": "14", "value": "Ok"
+                    
+                }
+            ]
+        },
+        {
+            "contents": ["Now you will be redirected to the website. Wish you a lot of luck!"],
+            "owner": "bot",
+            "id": "14",
+            "options": [
+                {
+                    "key": "15", "value": "Thank you. Bye"
+                    
+                }
+            ]
+        },
+        {
+            "contents": ["End of Chat"],
+            "owner": "bot",
+            "id": "15",
+            "options": [
+            ]
         }
+        
+        
+        
+        
     ]
 }
 
