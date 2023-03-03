@@ -16,8 +16,16 @@ struct SendMessageView: View {
                     Text(message.options[0].value)
                         .frame(maxWidth: .infinity)
                 }
-                .buttonStyle(.borderedProminent)
-                .padding(12)
+//                .buttonStyle(.borderedProminent)
+//                .padding(15)
+                .padding(10)
+                .foregroundColor(.white)
+                .font(.system(size: 19))
+
+                .background(.indigo)
+                .cornerRadius(15)
+                .padding(.top, 25)
+                .padding(.horizontal, 15)
                 
             default:
                 VStack(spacing: 0.0) {
@@ -45,7 +53,7 @@ struct SendMessageView: View {
                         .background(Color.black)
                     
                     Button {
-//              Check for selected option otherwise shows empty bubble
+// Check for selected option otherwise shows empty bubble
                         if !selectedOption.value.isEmpty {
                             send(selectedOption)
                         }
@@ -53,8 +61,14 @@ struct SendMessageView: View {
                         Text("Send")
                             .frame(maxWidth: .infinity)
                     }
-                    .buttonStyle(.borderedProminent)
-                    .padding(12)
+//                    .buttonStyle(.borderedProminent)
+                    .padding(10)
+                    .foregroundColor(.white)
+                    .font(.system(size: 19))
+                    .background(.indigo)
+                    .cornerRadius(15)
+                    .padding(.top, 25)
+                    .padding(.horizontal, 15)
                 }
             }
         }

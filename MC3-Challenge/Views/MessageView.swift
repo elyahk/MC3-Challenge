@@ -20,11 +20,10 @@ struct MessageView: View {
                 ForEach(message.contents, id: \.self) { message in
                     Text(message)
                 }
-//                Text(message.contents.first ?? "")
-                    .padding()
-                    .background(Color.init(uiColor: .systemGray6))
-                    .foregroundColor(.black)
-                    .font(.title3)
+                .padding()
+                .background(Color.init(uiColor: .systemGray6))
+                .foregroundColor(.black)
+                .font(.title3)
 
             }
         }

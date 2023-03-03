@@ -11,10 +11,11 @@ struct ChatbotView: View {
     
     var body: some View {
         VStack {
-//            Text("Welcome")
             Text(greeting)
                 .font(.title)
-                .fontWeight(.regular)
+                .fontWeight(.bold)
+                .foregroundColor(.indigo)
+            
             ScrollViewReader { scrollView in
                 ScrollView(.vertical) {
                     ForEach(viewModel.messages) { message in
@@ -27,11 +28,13 @@ struct ChatbotView: View {
                 }
             }
             
+            
             SendMessageView(message: viewModel.currentMessage, send: { option in
                 viewModel.answerButtonTapped(option)
             })
-            
-            .background(Color.init(uiColor: .systemGray5))
+            .background(.gray.opacity(0.07))
+
+//            .background(Color.init(uiColor: .systemGray5))
         }
     }
 }
