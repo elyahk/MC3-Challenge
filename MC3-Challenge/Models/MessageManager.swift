@@ -20,6 +20,6 @@ func loadJSONMessages() throws -> [Message] {
     else { throw NotFoundDataError() }
     let data = try Data.init(contentsOf: file)
     let loadedJson = try JSONDecoder().decode(MessageJSON.self, from: data)
-    
+    print(loadedJson.messages.first!)
     return loadedJson.messages
 }
